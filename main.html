@@ -1,16 +1,73 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Classes</title>
 </head>
 
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <h1>Animal Class Test</h1>
+
+  <button onclick="testCat()">Test Cat</button>
+  <button onclick="testDog()">Test Dog</button>
+
+  <p id="output"></p>
+
+  <script>
+    // complete this code
+    class Animal {
+      constructor(species) {
+        this._species = species;
+      }
+
+      get species() {
+        return this._species;
+      }
+
+      makeSound() {
+        console.log(`The ${this.species} makes a sound`);
+      }
+    }
+
+    class Dog extends Animal {
+      bark() {
+        console.log("woof");
+      }
+    }
+
+    class Cat extends Animal {
+      purr() {
+        console.log("purr");
+      }
+    }
+
+    // Do not change the code below this line
+    window.Animal = Animal;
+    window.Dog = Dog;
+    window.Cat = Cat;
+
+    function testCat() {
+      const cat = new Cat("Siamese");
+
+      cat.makeSound();
+      cat.purr();
+
+      document.getElementById("output").innerHTML =
+        "The " + cat.species + " makes a sound<br>purr";
+    }
+
+    function testDog() {
+      const dog = new Dog("Golden Retriever");
+
+      dog.makeSound();
+      dog.bark();
+
+      document.getElementById("output").innerHTML =
+        "The " + dog.species + " makes a sound<br>woof";
+    }
+  </script>
 
 </body>
-
 </html>
